@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SuperDice", "SuperDice\SuperDice.njsproj", "{11E5A5C9-B072-41FB-A0DF-6165F97C72ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11E5A5C9-B072-41FB-A0DF-6165F97C72ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E5A5C9-B072-41FB-A0DF-6165F97C72ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E5A5C9-B072-41FB-A0DF-6165F97C72ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E5A5C9-B072-41FB-A0DF-6165F97C72ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {989F9183-9232-4674-B828-C8CD22B840A9}
+	EndGlobalSection
+EndGlobal
