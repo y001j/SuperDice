@@ -13,7 +13,11 @@
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.0",
     "debug": "^2.2.0",
+    "eosjs": "^16.0.9",
     "express": "^4.14.0",
+    "i18next": "^11.9.0",
+    "i18next-express-middleware": "^1.4.0",
+    "i18next-node-fs-backend": "^2.1.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.0"

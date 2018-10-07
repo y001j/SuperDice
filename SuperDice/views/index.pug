@@ -1,5 +1,290 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .image-container.set-full-height(style="background-image: url('/img/wizard-city.jpg')")
+      // Creative Tim Branding
+      a(href='#')
+        .logo-container
+          .logo
+            img(src='/img/new_logo.png')
+          .brand
+            | Creative Tim
+      a(href='#')
+        .logo-container
+          .logo
+            img(src='/img/new_logo.png')
+          .brand
+            | Creative Tim
+      // Big container
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2
+            // Wizard container
+            .wizard-container
+              #wizard.card.wizard-card(data-color='green')
+                form(action='' method='')
+                  // You can switch ' data-color="green" '  with one of the next bright colors: "blue", "green", "orange", "red"
+                  .wizard-header
+                    h3
+                      b SP
+                      |  Super Dice 
+                      br
+                      small Super Dice is a EOS blockchain game.
+                  .wizard-navigation
+                    ul
+                      li
+                        a(href='#location' data-toggle='tab') Location
+                      //
+                        <li><a href="#type" data-toggle="tab">Type</a></li>
+                        <li><a href="#facilities" data-toggle="tab">Facilities</a></li>
+                        <li><a href="#description" data-toggle="tab">Description</a></li>
+                  .tab-content
+                    #location.tab-pane
+                      .row
+                        .col-sm-12
+                          .col-sm-3
+                            .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 1 EOS token.')
+                              input(type='radio' name='type' value='100')
+                              .icon
+                                i.fa.fa-ticket
+                                |  1
+                          .col-sm-3
+                            .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 0.5 EOS token.')
+                              input(type='radio' name='type' value='50')
+                              .icon
+                                i.fa.fa-ticket
+                                | 0.5
+                          .col-sm-3
+                            .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 0.25 EOS token.')
+                              input(type='radio' name='type' value='25')
+                              .icon
+                                i.fa.fa-ticket
+                                | 0.25
+                          .col-sm-3
+                            .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 0.1 EOS token.')
+                              input(type='radio' name='type' value='10')
+                              .icon
+                                i.fa.fa-ticket
+                                | 0.1
+
+                      .panel.panel-success
+                          .panel-heading Game Info
+                          .panel-body
+                            .col-sm-4
+                              .input-group.has-success(style='vertical-align:middle')
+                                span.input-group-addon Balance
+                                input#balance.form-control(type='text' readonly='' value='0' aria-label='Amount (to the nearest dollar)')
+                            .col-sm-4
+                              .input-group.has-success
+                                span.input-group-addon Bet
+                                input#thestake.form-control(type='text' readonly='' value='0' aria-label='Amount (to the nearest dollar)')
+                            .col-sm-4
+                              .input-group.has-success
+                                span.input-group-addon Payout
+                                input#payout.form-control(type='text' readonly='' value='0' aria-label='Amount (to the nearest dollar)')
+                      #bets.row
+                        //
+                          <div class="col-sm-12">
+                          <h4 class="info-text"> Let's start the game</h4>
+                          </div>
+                        #area.col-sm-12
+                        //
+                          <div class="col-sm-12">
+                          <input type="text" id="result_input" value="1,2,3,4,5,6" />
+                          <button id="roll">roll</button>
+                          <button id="stop">stop</button>
+                          </div>
+
+                        .col-sm-12 &nbsp;
+
+
+                        .col-sm-5.col-sm-offset-1
+                          .form-group
+                            button.btn.btn-warning.btn-fill.btn-block(type='button', value='9')
+                              | Big 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-4  
+                                span.dice.dice-5  
+                                span.dice.dice-6  
+                                | 1.8x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-5
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='10')
+                              | Small 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-1  
+                                span.dice.dice-2  
+                                span.dice.dice-3  
+                                | 1.8x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-5.col-sm-offset-1
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='7')
+                              | Odd 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-1  
+                                span.dice.dice-3  
+                                span.dice.dice-5  
+                                | 1.8x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-5
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='8')
+                              | Even 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-2  
+                                span.dice.dice-4  
+                                span.dice.dice-6  
+                                | 1.8x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-3.col-sm-offset-1
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='1')
+                              | 1 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-1(title='Dice 1')
+                                | 5x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-4
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='2')
+                              | 2 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-2(title='Dice 2')
+                                | 5x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-3
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='3')
+                              | 3 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-3(title='Dice 3')
+                                | 5x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-3.col-sm-offset-1
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='4')
+                              | 4 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-4(title='Dice 4')
+                                | 5x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-4
+                          .form-group
+                            button.btn.btn-fill.btn-success.btn-block(type='button', value='5')
+                              | 5 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-5(title='Dice 5')
+                                | 5x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                        .col-sm-3
+                          .form-group
+                            button.btn.btn-success.btn-fill.btn-block(type='button', value='6')
+                              | 6 
+                              span.badge.badge-pill.badge-primary
+                                span.dice.dice-6(title='Dice 6')
+                                | 5x
+                              | &nbsp;
+                              span.badge.badge-pill.badge-warning.betnum
+                    //#type.tab-pane
+                      h4.info-text What type of location do you have? 
+                      .row
+                        .col-sm-10.col-sm-offset-1
+                          .col-sm-4.col-sm-offset-2
+                            .choice(data-toggle='wizard-radio' rel='tooltip' title='Select this option if you have a house.')
+                              input(type='radio' name='type' value='House')
+                              .icon
+                                i.fa.fa-home
+                              h6 House
+                          .col-sm-4
+                            .choice(data-toggle='wizard-radio' rel='tooltip' title='Select this option if you have an appartment')
+                              input(type='radio' name='type' value='Appartment')
+                              .icon
+                                i.fa.fa-building
+                              h6 Appartment
+                    #facilities.tab-pane
+                      h4.info-text Tell us more about facilities. 
+                      .row
+                        .col-sm-5.col-sm-offset-1
+                          .form-group
+                            label Your place is good for
+                            select.form-control
+                              option(disabled='' selected='') - type -
+                              option Business
+                              option Vacation 
+                              option Work
+                        .col-sm-5
+                          .form-group
+                            label Is air conditioning included ?
+                            select.form-control
+                              option(disabled='' selected='') - response -
+                              option Yes
+                              option No 
+                        .col-sm-5.col-sm-offset-1
+                          .form-group
+                            label Does your place have wi-fi?
+                            select.form-control
+                              option(disabled='' selected='') - response -
+                              option Yes
+                              option No 
+                        .col-sm-5
+                          .form-group
+                            label Is breakfast included?
+                            select.form-control
+                              option(disabled='' selected='') - response -
+                              option Yes
+                              option No 
+                    #description.tab-pane
+                      .row
+                        h4.info-text  Drop us a small description. 
+                        .col-sm-6.col-sm-offset-1
+                          .form-group
+                            label Place description
+                            textarea.form-control(placeholder='' rows='9')
+                        .col-sm-4
+                          .form-group
+                            label Example
+                            p.description
+                              | &quot;The place is really nice. We use it every sunday when we go fishing. It is so awesome.&quot;
+                  .wizard-footer
+                    .row
+                      .col-sm-6
+                        input#roll.btn.btn-finish.btn-fill.btn-danger.btn-block(type='button' value='Roll')
+                      .col-sm-6
+                        input#clear.btn.btn-finish.btn-fill.btn-secondary.btn-info.btn-block(type='button' value='Clear')
+                    // <div class="clearfix"></div>
+            // wizard container
+        // row
+      // big container
+      #checkModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='checkModalTitle', aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header.bg-danger
+                h5#checkModalTitle.modal-title Info
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body.text-danger
+                | Please select the token type. 
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+
+      .footer
+        .container
+          | Innovate with 
+          i.fa.fa-heart.heart
+          |  by 
+          a(href='http://www.savepoors.com') SP Studio
+          |  - Contact Us 
+          a(href='mailto:service@savepoors.com' title='Email' target='_blank') service@savepoors.com
+
+
