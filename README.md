@@ -1,6 +1,6 @@
 # SuperDice
 
-## What we are going to do. 
+## What are we going to do. 
 We are a studio that aim for participating and contributing early EOS Dapp development and Eco system biulding.
 
 ## What is super dice
