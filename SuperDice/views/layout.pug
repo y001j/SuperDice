@@ -17,6 +17,9 @@ html
       link(href='/stylesheets/dice-1.0.min.css' rel='stylesheet')
       // CSS Just for demo purpose, don't include it in your project
       link(href='/stylesheets/demo.css' rel='stylesheet')
+      script(src='https://cdn.jsdelivr.net/npm/eosjs@16.0.0/lib/eos.min.js')
+      script(src='/javascripts/scatterjs-core.min.js')
+      script(src='/javascripts/scatterjs-plugin-eosjs.min.js')
       style.
         #area {
         width: 100%;
@@ -28,12 +31,13 @@ html
     script(src='/javascripts/bootstrap.min.js')
     script(src='/javascripts/jquery.bootstrap.wizard.js' type='text/javascript')
     script(src='/javascripts/dice.js?11' type='text/javascript')
+    
     // Plugin for the Wizard
     script(src='/javascripts/gsdk-bootstrap-wizard.js')
     // More information about jquery.validate here: http://jqueryvalidation.org/
     script(src='/javascripts/jquery.validate.min.js')
     script(src='/javascripts/jquery.session.js')
-    script(src='https://cdn.jsdelivr.net/npm/eosjs@16.0.9/lib/eos.min.js')
+    //script(src='https://cdn.jsdelivr.net/npm/eosjs@16.0.9/lib/eos.min.js')
     script(src='/javascripts/main.js')
     script.
       function g(id) {
@@ -52,7 +56,7 @@ html
       // ,
       //hasShadow:false,
       // shadowTop:90,
-      keepAnimationTime: 1000,
+      keepAnimationTime: 1800,
       onKeepAnimationEnd: function (result) {
       console.log('onKeepAnimationEnd,result:' + result + ',time:' + (new Date).getTime())
       }
@@ -60,10 +64,10 @@ html
       console.log('onEndAnimationEnd,result:' + result + ',time:' + (new Date).getTime())
       }
       })
-      $('#roll').on('click', function () {
+      //$('#roll').on('click', function () {
       //myDice.roll(g('result_input').value.split(','))
-      myDice.roll();
-      })
+      //myDice.roll();
+      //})
       //on(g('stop'), 'click', function () {
       //myDice.stop()
       //})

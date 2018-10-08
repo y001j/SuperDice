@@ -13,7 +13,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 router.post('/rolldice', function (req, res) {
     var content = req.body;//加密的明文；
-    console.log(content.ownerkey + content.activekey);
+    //console.log(content.ownerkey + content.activekey);
     console.log(content.account);
    
 
@@ -29,9 +29,9 @@ router.post('/rolldice', function (req, res) {
                     }],
                     data: {
                         from: content.account,
-                        to: 'myaccount',
+                        to: 'chinaplayers',
                         quantity: content.quantity + ' EOS',
-                        memo: content.meo
+                        memo: content.memo
                     }
                 }
             ]

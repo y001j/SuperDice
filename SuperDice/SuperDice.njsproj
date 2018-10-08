@@ -48,6 +48,8 @@
     <Compile Include="public\javascripts\jquery.min.js" />
     <Compile Include="public\javascripts\jquery.validate.min.js" />
     <Compile Include="public\javascripts\main.js" />
+    <Compile Include="public\javascripts\scatterjs-core.min.js" />
+    <Compile Include="public\javascripts\scatterjs-plugin-eosjs.min.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\common.js">
       <SubType>Code</SubType>
@@ -59,6 +61,7 @@
     <Content Include="public\img\favicon.ico" />
     <Content Include="public\img\favicon.png" />
     <Content Include="public\img\new_logo.png" />
+    <Content Include="public\img\splogo2.png" />
     <Content Include="public\img\thumb_list_boat.png" />
     <Content Include="public\img\thumb_list_place.png" />
     <Content Include="public\img\thumb_register.png" />
@@ -87,7 +90,6 @@
     <Content Include="public\stylesheets\gsdk-bootstrap-wizard.css" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
-    <Content Include="routes\key.txt" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
