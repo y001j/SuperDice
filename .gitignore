@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/SuperDice/SuperDice20181009020820 - Web Deploy.pubxml
+/SuperDice/Web.SuperDice20181009020820 - Web Deploy.config
