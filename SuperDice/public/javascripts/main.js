@@ -9,7 +9,7 @@
 //    chainId: chain.sys,
 //});
 
-const network = { blockchain: 'eos', protocol: 'https', host: 'api.eoslaomao.com', port: 443, chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906' };
+const network = { blockchain: 'eos', protocol: 'https', host: 'mainnet.eoscanada.com', port: 443, chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906' };
 let scatter = null;
 
 ScatterJS.scatter.connect('Super Dice').then(connected => {
@@ -30,6 +30,10 @@ ScatterJS.scatter.connect('Super Dice').then(connected => {
             $('#logout').removeClass('hidden');
             $('#login').html(account.name);
             $('#login').attr("disabled", true);
+        }).catch(
+        e => {
+            console.log("error", e);
+            res.send('transaction failed');
         })
     }
 });
@@ -134,26 +138,28 @@ function rolldice() {
     console.log('memo', memo);
     console.log('amount', amount + ' EOS');
     eos.transfer(account.name, 'chinaplayers', amount + ' EOS', memo, opts).then(trx => {
-        console.log('trx', trx);
-        eos.getTableRows(true, 'chinaplayers', account.name, 'account', 3).then(function (value) {
-
-            myDice.roll(value.rows[0].result);
-            setTimeout(function () {
+        console.log('trx', trx); 
+        myDice.roll();
+        setTimeout(function () {
+            eos.getTableRows(true, 'chinaplayers', account.name, 'account', 3).then(function (value) {
+                //myDice.roll(value.rows[0].result);
+                setTimeout(function () {
                 $('#payout').val(value.rows[0].prize);
                 eos.getAccount(account.name)
                     .then(
                         result => {
-                            //console.log(result);
                             $("#balance").val(result.core_liquid_balance);
                         });
-            }, 1800);
-           
-            
-           
-        });
+                }, 5000);
+                myDice.roll(value.rows[0].result);
+            })
+        }, 5000);
     }).catch(err => {
         console.error(err);
-    });
+        });
+    //eos.getTableRows(true, 'chinaplayers', account.name, 'account', 3);
+    
+   
 }
 
 function slelectToken() {

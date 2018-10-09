@@ -21,6 +21,10 @@ block content
                 
               a.navbar-brand(href='#') 
                 img(src='/img/splogo2.png')
+
+              a#login.navbar-brand(href='#') Login    
+              
+             
                 //| Super Dice
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -48,9 +52,8 @@ block content
                     li.divider(role='separator')
                     li
                       a(href='#') One more separated link
-              
               ul.nav.navbar-nav.navbar-right
-                li
+                //li
                   a#login(href='#') Login
                 li
                   a#logout.hidden(href='#') Logout
@@ -65,6 +68,7 @@ block content
                       a(href='#') English
                     li
                       a(href='#') Something else here
+              
                     //li.divider(role='separator')
                     //li
                       a(href='#') Separated link
@@ -95,25 +99,25 @@ block content
                     #location.tab-pane
                       .row
                         .col-sm-12
-                          .col-sm-3
+                          .col-xs-3.col-sm-3
                             .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 1 EOS token.')
                               input(type='radio' name='type' value='100')
                               .icon
                                 i.fa.fa-ticket
                                 |  1
-                          .col-sm-3
+                          .col-xs-3.col-sm-3
                             .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 0.5 EOS token.')
                               input(type='radio' name='type' value='50')
                               .icon
                                 i.fa.fa-ticket
                                 | 0.5
-                          .col-sm-3
+                          .col-xs-3.col-sm-3
                             .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 0.25 EOS token.')
                               input(type='radio' name='type' value='25')
                               .icon
                                 i.fa.fa-ticket
                                 | 0.25
-                          .col-sm-3
+                          .col-xs-3.col-sm-3
                             .choice(data-toggle='wizard-radio' rel='tooltip' title='Select 0.1 EOS token.')
                               input(type='radio' name='type' value='10')
                               .icon
@@ -151,7 +155,7 @@ block content
                         .col-sm-12 &nbsp;
 
 
-                        .col-sm-5.col-sm-offset-1
+                        .col-xs-6.col-sm-5.col-sm-offset-1
                           .form-group
                             button.btn.btn-warning.btn-fill.btn-block(type='button', value='9')
                               | Big 
@@ -162,7 +166,7 @@ block content
                                 | 1.8x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-5
+                        .col-xs-6.col-sm-5
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='10')
                               | Small 
@@ -173,7 +177,7 @@ block content
                                 | 1.8x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-5.col-sm-offset-1
+                        .col-xs-6.col-sm-5.col-sm-offset-1
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='7')
                               | Odd 
@@ -184,7 +188,7 @@ block content
                                 | 1.8x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-5
+                        .col-xs-6.col-sm-5
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='8')
                               | Even 
@@ -195,7 +199,7 @@ block content
                                 | 1.8x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-3.col-sm-offset-1
+                        .col-xs-6.col-sm-3.col-sm-offset-1
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='1')
                               | 1 
@@ -204,7 +208,7 @@ block content
                                 | 5x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-4
+                        .col-xs-6.col-sm-4
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='2')
                               | 2 
@@ -213,7 +217,7 @@ block content
                                 | 5x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-3
+                        .col-xs-6.col-sm-3
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='3')
                               | 3 
@@ -222,7 +226,7 @@ block content
                                 | 5x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-3.col-sm-offset-1
+                        .col-xs-6.col-sm-3.col-sm-offset-1
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='4')
                               | 4 
@@ -231,7 +235,7 @@ block content
                                 | 5x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-4
+                        .col-xs-6.col-sm-4
                           .form-group
                             button.btn.btn-fill.btn-success.btn-block(type='button', value='5')
                               | 5 
@@ -240,7 +244,7 @@ block content
                                 | 5x
                               | &nbsp;
                               span.badge.badge-pill.badge-warning.betnum
-                        .col-sm-3
+                        .col-xs-6.col-sm-3
                           .form-group
                             button.btn.btn-success.btn-fill.btn-block(type='button', value='6')
                               | 6 
@@ -311,9 +315,9 @@ block content
                               | &quot;The place is really nice. We use it every sunday when we go fishing. It is so awesome.&quot;
                   .wizard-footer
                     .row
-                      .col-sm-6
+                      .col-xs-6.col-sm-6
                         input#roll.btn.btn-finish.btn-fill.btn-danger.btn-block(type='button' value='Roll')
-                      .col-sm-6
+                      .col-xs-6.col-sm-6
                         input#clear.btn.btn-finish.btn-fill.btn-secondary.btn-info.btn-block(type='button' value='Clear')
                     // <div class="clearfix"></div>
             // wizard container
