@@ -38,9 +38,11 @@
     <Compile Include="app.js" />
     <Compile Include="public\javascripts\bootstrap.bundle.min.js" />
     <Compile Include="public\javascripts\bootstrap.min.js" />
+    <Compile Include="public\javascripts\clipboard.min.js" />
     <Compile Include="public\javascripts\dice.js" />
     <Compile Include="public\javascripts\gsdk-bootstrap-wizard.js" />
     <Compile Include="public\javascripts\i18next-1.11.2.min.js" />
+    <Compile Include="public\javascripts\jquery.cookie.js" />
     <Compile Include="public\javascripts\jquery.session.js">
       <SubType>Code</SubType>
     </Compile>
@@ -56,11 +58,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes\users.js" />
+    <Content Include="locales\en-US\translation.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="locales\zh-CN\translation.json" />
     <Content Include="package.json" />
     <Content Include="public\img\apple-icon.png" />
     <Content Include="public\img\default-avatar.png" />
     <Content Include="public\img\favicon.ico" />
     <Content Include="public\img\favicon.png" />
+    <Content Include="public\img\logo.svg">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\img\new_logo.png" />
     <Content Include="public\img\splogo2.png" />
     <Content Include="public\img\thumb_list_boat.png" />
@@ -92,12 +101,14 @@
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
     <Content Include="Web.config" />
-    <None Include="SuperDice20181009104132 - Web Deploy.pubxml" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="locales\" />
+    <Folder Include="locales\en-US\" />
+    <Folder Include="locales\zh-CN\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />

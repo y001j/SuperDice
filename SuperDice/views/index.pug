@@ -22,7 +22,7 @@ block content
               a.navbar-brand(href='#') 
                 img(src='/img/splogo2.png')
 
-              a#login.navbar-brand(href='#') Login    
+              a#login.navbar-brand(href='#')= t('home.login') 
               
              
                 //| Super Dice
@@ -56,17 +56,18 @@ block content
                 //li
                   a#login(href='#') Login
                 li
-                  a#logout.hidden(href='#') Logout
+                  a#logout.hidden(href='#')= t('home.logout')
+                li
+                  a#referal(href='#' data-toggle="modal" data-target="#referalmodal" data-reflink="https://dice.savegames.com/?ref=")= t('home.referral')
                 li.dropdown
-                  a.dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-                    | Language 
+                  a.dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')= t('home.language')
                     span.caret
-                  ul.dropdown-menu
+                  ul#lang.dropdown-menu
                     li
-                      a(href='#') Chinese
+                      a(href='#' lng='zh-CN') 中文简体
                     li
-                      a(href='#') English
-                    li
+                      a(href='#' lng='en-US') English
+                    //li
                       a(href='#') Something else here
               
                     //li.divider(role='separator')
@@ -84,13 +85,13 @@ block content
                   .wizard-header
                     h3
                       b SP
-                      |  Super Dice 
+                      span= t('home.title')
                       br
-                      small Super Dice is a EOS blockchain game.
+                      small= t('home.gameintro')
                   .wizard-navigation
                     ul
                       li
-                        a(href='#location' data-toggle='tab') Location
+                        a(href='#location' data-toggle='tab')= t('home.token')
                       //
                         <li><a href="#type" data-toggle="tab">Type</a></li>
                         <li><a href="#facilities" data-toggle="tab">Facilities</a></li>
@@ -125,19 +126,19 @@ block content
                                 | 0.1
 
                       .panel.panel-success
-                          .panel-heading Game Info
+                          .panel-heading= t('home.gameinfo')
                           .panel-body
                             .col-sm-4
                               .input-group.has-success(style='vertical-align:middle')
-                                span.input-group-addon Balance
+                                span.input-group-addon= t('home.balance')
                                 input#balance.form-control(type='text' readonly='' value='0' aria-label='Amount (to the nearest dollar)')
                             .col-sm-4
                               .input-group.has-success
-                                span.input-group-addon Bet
+                                span.input-group-addon= t('home.bet')
                                 input#thestake.form-control(type='text' readonly='' value='0' aria-label='Amount (to the nearest dollar)')
                             .col-sm-4
                               .input-group.has-success
-                                span.input-group-addon Payout
+                                span.input-group-addon= t('home.payout')
                                 input#payout.form-control(type='text' readonly='' value='0' aria-label='Amount (to the nearest dollar)')
                       #bets.row
                         //
@@ -157,8 +158,8 @@ block content
 
                         .col-xs-6.col-sm-5.col-sm-offset-1
                           .form-group
-                            button.btn.btn-warning.btn-fill.btn-block(type='button', value='9')
-                              | Big 
+                            button.btn.btn-warning.btn-fill.btn-block(type='button', value='9')= t('home.big')
+                              |&nbsp;
                               span.badge.badge-pill.badge-primary
                                 span.dice.dice-4  
                                 span.dice.dice-5  
@@ -168,8 +169,8 @@ block content
                               span.badge.badge-pill.badge-warning.betnum
                         .col-xs-6.col-sm-5
                           .form-group
-                            button.btn.btn-fill.btn-success.btn-block(type='button', value='10')
-                              | Small 
+                            button.btn.btn-warning.btn-fill.btn-success.btn-block(type='button', value='10')= t('home.small')
+                              |&nbsp;
                               span.badge.badge-pill.badge-primary
                                 span.dice.dice-1  
                                 span.dice.dice-2  
@@ -179,8 +180,8 @@ block content
                               span.badge.badge-pill.badge-warning.betnum
                         .col-xs-6.col-sm-5.col-sm-offset-1
                           .form-group
-                            button.btn.btn-fill.btn-success.btn-block(type='button', value='7')
-                              | Odd 
+                            button.btn.btn-warning.btn-fill.btn-success.btn-block(type='button', value='7')= t('home.odd') 
+                              |&nbsp;
                               span.badge.badge-pill.badge-primary
                                 span.dice.dice-1  
                                 span.dice.dice-3  
@@ -190,8 +191,8 @@ block content
                               span.badge.badge-pill.badge-warning.betnum
                         .col-xs-6.col-sm-5
                           .form-group
-                            button.btn.btn-fill.btn-success.btn-block(type='button', value='8')
-                              | Even 
+                            button.btn.btn-warning.btn-fill.btn-success.btn-block(type='button', value='8')= t('home.even') 
+                              |&nbsp;
                               span.badge.badge-pill.badge-primary
                                 span.dice.dice-2  
                                 span.dice.dice-4  
@@ -316,9 +317,10 @@ block content
                   .wizard-footer
                     .row
                       .col-xs-6.col-sm-6
-                        input#roll.btn.btn-finish.btn-fill.btn-danger.btn-block(type='button' value='Roll')
+                        //var btn= ;
+                        input#roll.btn.btn-finish.btn-fill.btn-danger.btn-block(type='button' value= t('home.roll'))
                       .col-xs-6.col-sm-6
-                        input#clear.btn.btn-finish.btn-fill.btn-secondary.btn-info.btn-block(type='button' value='Clear')
+                        input#clear.btn.btn-finish.btn-fill.btn-secondary.btn-info.btn-block(type='button' value= t('home.clear'))
                     // <div class="clearfix"></div>
             // wizard container
         // row
@@ -327,13 +329,37 @@ block content
           .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
               .modal-header
-                h5#checkModalTitle.modal-title Info
+                h5#checkModalTitle.modal-title= t('home.info')
                 button.close(type='button', data-dismiss='modal', aria-label='Close')
                   span(aria-hidden='true') ×
-              .modal-body
-                | Please select the token type. 
+              .modal-body= t('home.selectt')
+                
               .modal-footer
                 button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+
+      #referalmodal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header.success
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+                h4#exampleModalLabel.modal-title= t('home.referraltitle')
+              .modal-body
+                form
+                  .form-group
+                    label.control-label(for='recipient-name')= t('home.referlink')
+                    input#referlink.form-control(type='text')
+                    br 
+                    = t('home.refline1')                  
+                    br 
+                    = t('home.refline2')                
+                    br 
+                    = t('home.refline3')
+                    
+                    
+              .modal-footer
+                
+                button#copylink.btn.btn-primary(type='button' data-clipboard-action="copy" data-clipboard-target="#referlink")= t('home.copy')    
 
       .footer
         .container

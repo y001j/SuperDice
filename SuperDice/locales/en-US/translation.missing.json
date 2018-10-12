@@ -1,0 +1,8 @@
+{
+  "home": {
+    "logout": "home.logout",
+    "referral": "home.referral",
+    "tocken": "home.tocken",
+    "samll": "home.samll"
+  }
+}

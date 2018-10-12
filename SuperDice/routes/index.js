@@ -4,6 +4,8 @@ var router = express.Router();
 //let eos = require('./common.js').eos;
 var bodyParser = require('body-parser');
 
+
+
 /* GET home page. */
 router.get('/', function (req, res) {
     res.render('index', { title: 'Super Dice' });

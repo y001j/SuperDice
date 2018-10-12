@@ -9,7 +9,7 @@
 //    chainId: chain.sys,
 //});
 
-const network = { blockchain: 'eos', protocol: 'https', host: 'mainnet.eoscanada.com', port: 443, chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906' };
+const network = { blockchain: 'eos', protocol: 'https', host: 'api.eoslaomao.com', port: 443, chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906' };
 let scatter = null;
 
 ScatterJS.scatter.connect('Super Dice').then(connected => {
@@ -30,6 +30,7 @@ ScatterJS.scatter.connect('Super Dice').then(connected => {
             $('#logout').removeClass('hidden');
             $('#login').html(account.name);
             $('#login').attr("disabled", true);
+            $('#referal').attr("data-reflink", "https://dice.savegames.com/?ref=" + account.name);
         }).catch(
         e => {
             console.log("error", e);
@@ -46,6 +47,8 @@ $(function () {
     //$.session.clear();
     $.session.remove('token');
     ScatterJS.plugins(new ScatterEOS());
+
+    
 
     //if ($.session.get('userlog') === 'ok') {
         
@@ -87,8 +90,20 @@ $(function () {
 
     $('#roll').on("click", rolldice);
 
-    $('#login').on('click', function () {
-        
+    $('#lang a').on("click", changelang);
+
+    new ClipboardJS('#copylink');
+    //clipboard.on('success', function (e) {
+    //    console.log(e);
+    //});
+    //clipboard3.on('error', function (e) {
+    //    console.log(e);
+    //});
+
+    //$('#copylink').on("click", copyref);
+    //$('#roll').on("click", referals);
+
+    $('#login').on('click', function () {  
        //scatter.suggestNetwork(network);
         const eos = scatter.eos(network, Eos);
         scatter.getIdentity({ accounts: [network] }).then(function (id) {
@@ -103,6 +118,7 @@ $(function () {
             $('#logout').removeClass('hidden');
             $('#login').html(account.name);
             $('#login').attr("disabled", true);
+            $('#referal').attr("data-reflink", "https://dice.savegames.com/?ref=" + account.name);
             $.session.set('userlog', 'ok');
         });
     });
@@ -115,7 +131,16 @@ $(function () {
         $('#login').attr("disabled", false);
         $.session.set('userlog', 'no');
     });
+
+    $('#referalmodal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var link = button.data('reflink'); // Extract info from data-* attributes    
+        var modal = $(this);
+        modal.find('.modal-body input').val(link);
+    })
 });
+
+
 
 function rolldice() {
     const eos = scatter.eos(network, Eos);
@@ -132,7 +157,7 @@ function rolldice() {
     }
     console.log(memo);
     memo = memo.substring(0, memo.length - 1);
-    memo += '$' + $.session.get('token') + '$';
+    memo += '$' + $.session.get('token') + '$' + qs('ref');
     const account = scatter.identity.accounts.find(x => x.blockchain === 'eos');
     const opts = { authorization: [`${account.name}@${account.authority}`] };
     console.log('memo', memo);
@@ -197,6 +222,20 @@ function addToken() {
 
 function clearpage() {
     location.reload();
+}
+
+function changelang() {
+    $.cookie('i18next', $(this).attr("lng"), { expires: 1 });
+    location.reload();
+    //$('#langlink').attr("href", "/?lng=zh-CN");
+}
+
+
+
+function qs(key) {
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+    var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
 }
 
 

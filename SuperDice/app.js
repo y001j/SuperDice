@@ -6,11 +6,32 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//for internationalization - support multi-language
+var i18next = require('i18next');
+var i18nextMiddleware = require('i18next-express-middleware');
+var Backend = require('i18next-node-fs-backend');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+i18next
+    .use(Backend)
+    .use(i18nextMiddleware.LanguageDetector)
+    .init({
+        backend: {
+            loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json',
+            addPath: __dirname + '/locales/{{lng}}/{{ns}}.missing.json'
+        },
+        detection: {
+            order: ['querystring', 'cookie'],
+            caches: ['cookie']
+        },
+        fallbackLng: 'en-US',
+        preload: ['en-US', 'zh-CN'],
+        saveMissing: true
+    });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(i18nextMiddleware.handle(i18next));
 
 app.use('/', routes);
 app.use('/users', users);

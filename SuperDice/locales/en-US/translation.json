@@ -1,0 +1,31 @@
+﻿{
+  "home": {
+    "title": "Super Dice",
+    "login": "Login",
+    "logout": "Logout",
+    "referral": "Referrals",
+    "language": "Language",
+    "gameintro": "Super Dice is an EOS blockchain game.",
+    "token": "Token types",
+    "gameinfo": "Game Info",
+    "balance": "balance",
+
+    "bet": "Bet",
+    "payout": "Payout",
+    "big": "Big",
+    "small": "Small",
+    "odd": "Odd",
+    "even": "Even",
+    "roll": "Roll",
+    "clear": "Clear",
+
+    "info": "INFO",
+    "selectt": "Please select the token type.",
+    "referraltitle": "Introduce the game to your friends and get the prize!!!!",
+    "referlink": "Your referral link:",
+    "refline1": "Please share the referral link to your friends. The benifits are:",
+    "refline2": "1. You can get 1% of total bet of your frends who join <strong>Super Dice</strong> through the referral link.",
+    "refline3": "2. You friends who joined the game with a referral link can received extra 0.5% more payout if they win.",
+    "copy": "Copy"
+  }
+}
